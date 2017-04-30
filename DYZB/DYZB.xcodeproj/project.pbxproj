@@ -13,6 +13,11 @@
 		C95F87231EB4917C00C7CF2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95F87211EB4917C00C7CF2A /* LaunchScreen.storyboard */; };
 		C95F872E1EB4917C00C7CF2A /* DYZBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F872D1EB4917C00C7CF2A /* DYZBTests.swift */; };
 		C95F87391EB4917C00C7CF2A /* DYZBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F87381EB4917C00C7CF2A /* DYZBUITests.swift */; };
+		C95F874F1EB5E5B900C7CF2A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95F874D1EB5E5B900C7CF2A /* Home.storyboard */; };
+		C95F87511EB5E5DE00C7CF2A /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95F87501EB5E5DE00C7CF2A /* Live.storyboard */; };
+		C95F87541EB5E5FF00C7CF2A /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95F87521EB5E5FF00C7CF2A /* Follow.storyboard */; };
+		C95F87561EB5E61700C7CF2A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95F87551EB5E61700C7CF2A /* Profile.storyboard */; };
+		C95F87581EB5E7BB00C7CF2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F87571EB5E7BB00C7CF2A /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,11 @@
 		C95F87341EB4917C00C7CF2A /* DYZBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DYZBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95F87381EB4917C00C7CF2A /* DYZBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DYZBUITests.swift; sourceTree = "<group>"; };
 		C95F873A1EB4917C00C7CF2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95F874E1EB5E5B900C7CF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DYZB/Base.lproj/Home.storyboard; sourceTree = SOURCE_ROOT; };
+		C95F87501EB5E5DE00C7CF2A /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Live.storyboard; path = ../Main/Live.storyboard; sourceTree = "<group>"; };
+		C95F87531EB5E5FF00C7CF2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DYZB/Base.lproj/Follow.storyboard; sourceTree = SOURCE_ROOT; };
+		C95F87551EB5E61700C7CF2A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../Main/Profile.storyboard; sourceTree = "<group>"; };
+		C95F87571EB5E7BB00C7CF2A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +107,6 @@
 			children = (
 				C95F87461EB59C1400C7CF2A /* Classes */,
 				C95F87181EB4917C00C7CF2A /* AppDelegate.swift */,
-				C95F871C1EB4917C00C7CF2A /* Main.storyboard */,
 				C95F871F1EB4917C00C7CF2A /* Assets.xcassets */,
 				C95F87211EB4917C00C7CF2A /* LaunchScreen.storyboard */,
 				C95F87241EB4917C00C7CF2A /* Info.plist */,
@@ -139,6 +148,7 @@
 		C95F87471EB59C1400C7CF2A /* Follow */ = {
 			isa = PBXGroup;
 			children = (
+				C95F87521EB5E5FF00C7CF2A /* Follow.storyboard */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -146,6 +156,7 @@
 		C95F87481EB59C1400C7CF2A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C95F874D1EB5E5B900C7CF2A /* Home.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -153,6 +164,7 @@
 		C95F87491EB59C1400C7CF2A /* LIve */ = {
 			isa = PBXGroup;
 			children = (
+				C95F87501EB5E5DE00C7CF2A /* Live.storyboard */,
 			);
 			path = LIve;
 			sourceTree = "<group>";
@@ -160,6 +172,8 @@
 		C95F874A1EB59C1400C7CF2A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C95F871C1EB4917C00C7CF2A /* Main.storyboard */,
+				C95F87571EB5E7BB00C7CF2A /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -167,6 +181,7 @@
 		C95F874B1EB59C1400C7CF2A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				C95F87551EB5E61700C7CF2A /* Profile.storyboard */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -285,6 +300,10 @@
 				C95F87231EB4917C00C7CF2A /* LaunchScreen.storyboard in Resources */,
 				C95F87201EB4917C00C7CF2A /* Assets.xcassets in Resources */,
 				C95F871E1EB4917C00C7CF2A /* Main.storyboard in Resources */,
+				C95F87511EB5E5DE00C7CF2A /* Live.storyboard in Resources */,
+				C95F874F1EB5E5B900C7CF2A /* Home.storyboard in Resources */,
+				C95F87561EB5E61700C7CF2A /* Profile.storyboard in Resources */,
+				C95F87541EB5E5FF00C7CF2A /* Follow.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95F87191EB4917C00C7CF2A /* AppDelegate.swift in Sources */,
+				C95F87581EB5E7BB00C7CF2A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +371,7 @@
 				C95F871D1EB4917C00C7CF2A /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		C95F87211EB4917C00C7CF2A /* LaunchScreen.storyboard */ = {
@@ -359,6 +380,24 @@
 				C95F87221EB4917C00C7CF2A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C95F874D1EB5E5B900C7CF2A /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C95F874E1EB5E5B900C7CF2A /* Base */,
+			);
+			name = Home.storyboard;
+			path = ../Main;
+			sourceTree = "<group>";
+		};
+		C95F87521EB5E5FF00C7CF2A /* Follow.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C95F87531EB5E5FF00C7CF2A /* Base */,
+			);
+			name = Follow.storyboard;
+			path = ../Main;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -451,6 +490,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = DYZB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.novagin.epsonBook.DYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -463,6 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = DYZB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.novagin.epsonBook.DYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
