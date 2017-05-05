@@ -13,7 +13,7 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+// Do any additional setup after loading the view.
         addChildViewVc("Home")
         addChildViewVc("Live")
         addChildViewVc("Follow")
@@ -23,10 +23,10 @@ class MainViewController: UITabBarController {
 
     
     private func addChildViewVc(stroyName: String) {
-        //1、通过storybord获取控制器
+//1、通过storybord获取控制器
         let childVC=UIStoryboard(name: stroyName, bundle: nil).instantiateInitialViewController()!
         
-        //2、将childVC作为子控制器
+//2、将childVC作为子控制器
         addChildViewController(childVC)
     }
 }
