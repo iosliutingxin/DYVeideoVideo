@@ -28,6 +28,16 @@ class PageTitleView: UIView {
     
     }()
     
+    private lazy var titleLables : [UILabel] = [UILabel]()
+    
+    private lazy var scrollerLine:UIView = {
+    
+    let scrollerLine=UIView()
+    scrollerLine.backgroundColor=UIColor.orangeColor()
+    return scrollerLine
+        
+    }()
+    
 //自定义构造函数
     init(frame: CGRect,titles:[String]) {
         
@@ -52,6 +62,30 @@ extension PageTitleView{
         scrollView.frame=bounds
 //2、添加title对应的Lable
         setupTitleLables()
+        
+//3、设置底线和滚动滑块
+        
+     setupBottonLineAndScollLine()
+    }
+    
+    private func setupBottonLineAndScollLine(){
+        
+        let botton=UIView()
+        botton.backgroundColor=UIColor.redColor()
+        let lineH:CGFloat = 0.5
+        botton.frame=CGRect(x: 0, y: frame.height-lineH, width: frame.width, height: lineH)
+//        scrollView.addSubview(botton)
+        addSubview(botton)
+        
+        
+//1、获取第一个label
+      guard  let firstLabel = titleLables.first else {return}
+      firstLabel.textColor = UIColor.orangeColor()
+        
+//2、设置scrollerLine的属性
+        scrollView.addSubview(scrollerLine)
+        scrollerLine.frame=CGRect(x: firstLabel.frame.origin.x, y: frame.height - scrollLineH, width: firstLabel.frame.width, height: scrollLineH)
+    
     
     }
     
@@ -76,6 +110,7 @@ extension PageTitleView{
             
 //2、将uilable添加到scrollerview中
             scrollView.addSubview(lable)
+            titleLables.append(lable)
             
             
         }
