@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
     
 //内容部分
     
-    private lazy var pageContentView : PageContentView = {
+    private lazy var pageContentView : PageContentView = {[weak self]in
         
 //1、确定frame
         let contentH = screenH - stateBarH - NavigationBar - titleViewH

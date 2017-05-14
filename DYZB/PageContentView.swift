@@ -14,14 +14,14 @@ class PageContentView: UIView {
     
 //2、定义属性
     private var chilVcs : [UIViewController]
-    private var parentViewController : UIViewController
+    private weak var parentViewController : UIViewController?
     
-//懒加载属性
-    private lazy var collectionView : UICollectionView = {
+//懒加载属性(弱引用)
+    private lazy var collectionView : UICollectionView = {[weak self] in
     
 //1,创建layout
       let  layout = UICollectionViewFlowLayout()
-      layout.itemSize=self.bounds.size
+      layout.itemSize=(self?.bounds.size)!
       layout.minimumInteritemSpacing = 0
       layout.minimumLineSpacing = 0
       layout.scrollDirection = .Horizontal
@@ -40,7 +40,7 @@ class PageContentView: UIView {
 
 //1、构造函数
     
-    init(frame: CGRect,chilVcs : [UIViewController],parentViewController : UIViewController) {
+    init(frame: CGRect,chilVcs : [UIViewController],parentViewController : UIViewController?) {
         
         
         self.chilVcs=chilVcs
@@ -66,7 +66,7 @@ extension PageContentView {
         
         for chilVcv in chilVcs {
         
-        parentViewController.addChildViewController(chilVcv)
+        parentViewController?.addChildViewController(chilVcv)
         
         }
     
