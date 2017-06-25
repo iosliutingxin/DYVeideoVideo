@@ -7,12 +7,21 @@
 //
 
 import UIKit
+//定义一个协议传递头部导航栏的信息到
+protocol pageTitleDelegate : class
+{
+    func pageTitleView(titleView : PageTitleView,selectedIndex index:Int)
+
+}
+
 private let scrollLineH :CGFloat=2
 
 class PageTitleView: UIView {
     
 //定义属性
     private var titles :[String]
+    private var currentIndex : Int = 0
+    weak var delegate : pageTitleDelegate?
     
     
 //懒加载属性
@@ -53,6 +62,44 @@ class PageTitleView: UIView {
     }
 
 }
+
+//监听lable的点击
+extension PageTitleView{
+    
+    @objc private func titleLableClick(tagGes : UITapGestureRecognizer){
+    
+//1、获取当前lable
+        guard let currentLable = tagGes.view as? UILabel else { return }
+    
+//2、获取之前lable
+        let  oldLable = titleLables[currentIndex]
+        
+        
+//3、保存最新lable下标值
+        currentIndex = currentLable.tag
+        
+        
+//4、切换颜色
+        currentLable.textColor = UIColor.orangeColor()
+        oldLable.textColor = UIColor.darkGrayColor()
+        
+        
+//5、设置滚动条颜色
+        
+        let scollerlineX = CGFloat(currentIndex) * scrollerLine.frame.width
+        UIView.animateWithDuration(0.15){
+        self.scrollerLine.frame.origin.x = scollerlineX
+        }
+        
+//6.通知代理
+        delegate?.pageTitleView(self, selectedIndex: currentIndex)
+        
+        
+
+    }
+    
+}
+
 
 extension PageTitleView{
     
@@ -112,10 +159,17 @@ extension PageTitleView{
             scrollView.addSubview(lable)
             titleLables.append(lable)
             
+//3、给lable添加手势，应许交互
+             lable.userInteractionEnabled = true
+            let tapGes = UITapGestureRecognizer(target: self, action:Selector("titleLableClick:"))
+             lable.addGestureRecognizer(tapGes)
+
             
         }
   }
     
-    
+
 
 }
+
+

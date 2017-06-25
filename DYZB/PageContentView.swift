@@ -76,7 +76,7 @@ extension PageContentView {
     }
 }
 
-
+//遵守UICollectionViewDataSource
 extension PageContentView : UICollectionViewDataSource {
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -103,3 +103,18 @@ extension PageContentView : UICollectionViewDataSource {
     }
 
 }
+
+//对外暴露的方法
+extension PageContentView{
+    
+    func setCurrentIndex(currentIndex:Int){
+        
+        let offsetx = CGFloat(currentIndex) * collectionView.frame.width
+        
+        collectionView.setContentOffset(CGPoint(x: offsetx, y: 0), animated: false)
+    
+    }
+}
+
+
+
