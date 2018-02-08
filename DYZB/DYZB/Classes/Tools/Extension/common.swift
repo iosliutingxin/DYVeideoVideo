@@ -11,5 +11,5 @@ import UIKit
 let stateBarH:CGFloat=20
 let NavigationBar :CGFloat=44
 
-let screenW=UIScreen.mainScreen().bounds.width
-let screenH=UIScreen.mainScreen().bounds.height
+let screenW=UIScreen.main.bounds.width
+let screenH=UIScreen.main.bounds.height

@@ -10,7 +10,7 @@ import UIKit
 //定义一个协议传递头部导航栏的信息到
 protocol pageTitleDelegate : class
 {
-    func pageTitleView(titleView : PageTitleView,selectedIndex index:Int)
+    func pageTitleView(_ titleView : PageTitleView,selectedIndex index:Int)
 
 }
 
@@ -19,13 +19,13 @@ private let scrollLineH :CGFloat=2
 class PageTitleView: UIView {
     
 //定义属性
-    private var titles :[String]
-    private var currentIndex : Int = 0
+    fileprivate var titles :[String]
+    fileprivate var currentIndex : Int = 0
     weak var delegate : pageTitleDelegate?
     
     
 //懒加载属性
-    private lazy var scrollView:UIScrollView={
+    fileprivate lazy var scrollView:UIScrollView={
         
       let scrollView=UIScrollView()
         scrollView.showsHorizontalScrollIndicator=false
@@ -37,12 +37,12 @@ class PageTitleView: UIView {
     
     }()
     
-    private lazy var titleLables : [UILabel] = [UILabel]()
+    fileprivate lazy var titleLables : [UILabel] = [UILabel]()
     
-    private lazy var scrollerLine:UIView = {
+    fileprivate lazy var scrollerLine:UIView = {
     
     let scrollerLine=UIView()
-    scrollerLine.backgroundColor=UIColor.orangeColor()
+    scrollerLine.backgroundColor=UIColor.orange
     return scrollerLine
         
     }()
@@ -66,7 +66,7 @@ class PageTitleView: UIView {
 //监听lable的点击
 extension PageTitleView{
     
-    @objc private func titleLableClick(tagGes : UITapGestureRecognizer){
+    @objc fileprivate func titleLableClick(_ tagGes : UITapGestureRecognizer){
     
 //1、获取当前lable
         guard let currentLable = tagGes.view as? UILabel else { return }
@@ -80,16 +80,16 @@ extension PageTitleView{
         
         
 //4、切换颜色
-        currentLable.textColor = UIColor.orangeColor()
-        oldLable.textColor = UIColor.darkGrayColor()
+        currentLable.textColor = UIColor.orange
+        oldLable.textColor = UIColor.darkGray
         
         
 //5、设置滚动条颜色
         
         let scollerlineX = CGFloat(currentIndex) * scrollerLine.frame.width
-        UIView.animateWithDuration(0.15){
+        UIView.animate(withDuration: 0.15, animations: {
         self.scrollerLine.frame.origin.x = scollerlineX
-        }
+        })
         
 //6.通知代理
         delegate?.pageTitleView(self, selectedIndex: currentIndex)
@@ -103,7 +103,7 @@ extension PageTitleView{
 
 extension PageTitleView{
     
-    private func setupUI(){
+    fileprivate func setupUI(){
 // 1、添加UISCollerView
         addSubview(scrollView)
         scrollView.frame=bounds
@@ -115,10 +115,10 @@ extension PageTitleView{
      setupBottonLineAndScollLine()
     }
     
-    private func setupBottonLineAndScollLine(){
+    fileprivate func setupBottonLineAndScollLine(){
         
         let botton=UIView()
-        botton.backgroundColor=UIColor.redColor()
+        botton.backgroundColor=UIColor.red
         let lineH:CGFloat = 0.5
         botton.frame=CGRect(x: 0, y: frame.height-lineH, width: frame.width, height: lineH)
 //        scrollView.addSubview(botton)
@@ -127,7 +127,7 @@ extension PageTitleView{
         
 //1、获取第一个label
       guard  let firstLabel = titleLables.first else {return}
-      firstLabel.textColor = UIColor.orangeColor()
+      firstLabel.textColor = UIColor.orange
         
 //2、设置scrollerLine的属性
         scrollView.addSubview(scrollerLine)
@@ -136,18 +136,18 @@ extension PageTitleView{
     
     }
     
-    private func setupTitleLables(){
+    fileprivate func setupTitleLables(){
     
-        for (index,title) in titles.enumerate(){
+        for (index,title) in titles.enumerated(){
         
         
 //1、创建UILable
             let lable=UILabel()
             lable.text=title
             lable.tag=index
-            lable.textAlignment = .Center
-            lable.textColor=UIColor.darkGrayColor()
-            lable.font=UIFont.systemFontOfSize(16.0)
+            lable.textAlignment = .center
+            lable.textColor=UIColor.darkGray
+            lable.font=UIFont.systemFont(ofSize: 16.0)
             
             let lableW:CGFloat=frame.width / CGFloat(titles.count)
             let lableH:CGFloat=frame.height - scrollLineH
@@ -160,8 +160,8 @@ extension PageTitleView{
             titleLables.append(lable)
             
 //3、给lable添加手势，应许交互
-             lable.userInteractionEnabled = true
-            let tapGes = UITapGestureRecognizer(target: self, action:Selector("titleLableClick:"))
+             lable.isUserInteractionEnabled = true
+            let tapGes = UITapGestureRecognizer(target: self, action:#selector(PageTitleView.titleLableClick(_:)))
              lable.addGestureRecognizer(tapGes)
 
             

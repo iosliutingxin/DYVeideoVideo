@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
 
     
 //懒加载属性
-    private lazy var pageTitleView:PageTitleView = {[weak self] in
+    fileprivate lazy var pageTitleView:PageTitleView = {[weak self] in
     
         let titleFrame=CGRect(x: 0, y: stateBarH+NavigationBar, width:screenW, height: titleViewH)
         let titles=["推荐","游戏","娱乐","趣玩"]
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     
 //内容部分
     
-    private lazy var pageContentView : PageContentView = {[weak self]in
+    fileprivate lazy var pageContentView : PageContentView = {[weak self]in
         
 //1、确定frame
         let contentH = screenH - stateBarH - NavigationBar - titleViewH
@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
 //设置UI界面
 extension HomeViewController{
 
-    private func setUpUI(){
+    fileprivate func setUpUI(){
 //不需要调整UIscrollView的内边距
         automaticallyAdjustsScrollViewInsets=false
         
@@ -77,14 +77,14 @@ extension HomeViewController{
 //3、添加contentView
         
         view.addSubview(pageContentView)
-        pageContentView.backgroundColor = UIColor.purpleColor()
+        pageContentView.backgroundColor = UIColor.purple
     
     }
     
-    private func setUpNavigationBar(){
+    fileprivate func setUpNavigationBar(){
         
         let btn=UIButton()
-        btn.setImage(UIImage (named: "homeLogoIcon"), forState:.Normal )
+        btn.setImage(UIImage (named: "homeLogoIcon"), for:UIControlState() )
         btn.sizeToFit()
         navigationItem.leftBarButtonItem=UIBarButtonItem(customView: btn)
     
@@ -108,7 +108,7 @@ extension HomeViewController{
 
 extension HomeViewController : pageTitleDelegate{
 
-    func pageTitleView(titleView: PageTitleView, selectedIndex index: Int) {
+    func pageTitleView(_ titleView: PageTitleView, selectedIndex index: Int) {
         
         pageContentView.setCurrentIndex(index)
     }

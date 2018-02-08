@@ -29,9 +29,9 @@ extension UIBarButtonItem {
     convenience init(imageName:String,highImage:String,size:CGSize) {
         
         let qrcode=UIButton()
-        qrcode.setImage(UIImage(named: imageName), forState: .Normal)
-        qrcode.setImage(UIImage(named: highImage), forState: .Highlighted)
-        qrcode.frame=CGRect(origin: CGPointZero, size: size)
+        qrcode.setImage(UIImage(named: imageName), for: UIControlState())
+        qrcode.setImage(UIImage(named: highImage), for: .highlighted)
+        qrcode.frame=CGRect(origin: CGPoint.zero, size: size)
         self.init(customView:qrcode)
     }
     

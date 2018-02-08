@@ -14,10 +14,10 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
 
 // Do any additional setup after loading the view.
-        addChildViewVc("Home")
-        addChildViewVc("Live")
-        addChildViewVc("Follow")
-        addChildViewVc("Profile")
+        addChildViewVc(stroyName: "Home")
+        addChildViewVc(stroyName: "Live")
+        addChildViewVc(stroyName: "Follow")
+        addChildViewVc(stroyName: "Profile")
 
     }
 
