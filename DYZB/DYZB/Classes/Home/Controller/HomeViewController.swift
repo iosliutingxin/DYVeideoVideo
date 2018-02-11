@@ -11,8 +11,13 @@ import UIKit
 private let titleViewH:CGFloat=40
 
 class HomeViewController: UIViewController {
-
     
+    public var currentIndex : Int = 0{
+        didSet{
+            setCurrentIndex(index: currentIndex)
+        }
+    }
+
 //懒加载属性
     fileprivate lazy var pageTitleView:PageTitleView = {[weak self] in
     
@@ -24,31 +29,28 @@ class HomeViewController: UIViewController {
     
     }()
     
-    
 //内容部分
-    
     fileprivate lazy var pageContentView : PageContentView = {[weak self]in
-        
 //1、确定frame
         let contentH = screenH - stateBarH - NavigationBar - titleViewH
-        
         let contentFrame = CGRect(x: 0, y: stateBarH + NavigationBar + titleViewH, width: screenW, height: contentH)
 //2、确定所有子控制器
-        
         var childVc = [UIViewController]()
         for _ in 0..<4{
         
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
             childVc.append(vc)
-            
-        
         }
     
         let contentView = PageContentView(frame: contentFrame, chilVcs: childVc, parentViewController: self)
-    
+        contentView.ContentCurrentPage = {[weak self] (index)in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.currentIndex = index
+        }
         return contentView
-    
     }()
     
 //系统回调函数
@@ -106,10 +108,24 @@ extension HomeViewController{
     }
 }
 
-extension HomeViewController : pageTitleDelegate{
+extension HomeViewController{
+    
+    func setCurrentIndex(index : Int)  {
+        pageTitleView.setCurrentId(index)
+    }
+}
+
+//pageTitleDelegate
+extension HomeViewController : pageTitleDelegate {
 
     func pageTitleView(_ titleView: PageTitleView, selectedIndex index: Int) {
         
         pageContentView.setCurrentIndex(index)
+        
     }
+    
+ 
 }
+
+
+

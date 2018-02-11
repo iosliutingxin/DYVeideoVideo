@@ -20,7 +20,7 @@ class PageTitleView: UIView {
     
 //定义属性
     fileprivate var titles :[String]
-    fileprivate var currentIndex : Int = 0
+    public var currentIndex : Int = 0
     weak var delegate : pageTitleDelegate?
     
     
@@ -167,9 +167,38 @@ extension PageTitleView{
             
         }
   }
-    
-
 
 }
 
+//对外暴露的方法
+/**
+ 1、通过typealie传递滚动的页面信息，然后传给主控制器的currentIndex、通过didset监听其变换，然后调用当前控制器对外暴露的方法实现标题随内容的滚动而滚动
+ */
+extension PageTitleView{
+    
+    func setCurrentId(_ currentIndex:Int){
+    
+        //2、获取lable
+        let  oldLable = titleLables[self.currentIndex]
+        let  currentLable = titleLables[currentIndex]
 
+        
+        //3、保存最新lable下标值
+        self.currentIndex = currentIndex
+        
+        
+        //4、切换颜色
+        currentLable.textColor = UIColor.orange
+        oldLable.textColor = UIColor.darkGray
+        
+        
+        //5、设置滚动条颜色
+        
+        let scollerlineX = CGFloat(currentIndex) * scrollerLine.frame.width
+        UIView.animate(withDuration: 0.15, animations: {
+            self.scrollerLine.frame.origin.x = scollerlineX
+        })
+        
+        
+    }
+}

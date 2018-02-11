@@ -9,13 +9,12 @@
 import UIKit
 
 private let contentCellID = "contentCellID"
-
+typealias ContentCurrentPage = (_ index : Int) -> Void
 class PageContentView: UIView {
-    
 //2、定义属性
     fileprivate var chilVcs : [UIViewController]
     fileprivate weak var parentViewController : UIViewController?
-    
+    var ContentCurrentPage : ContentCurrentPage?
 //懒加载属性(弱引用)
     fileprivate lazy var collectionView : UICollectionView = {[weak self] in
     
@@ -33,6 +32,7 @@ class PageContentView: UIView {
         collectionView.isPagingEnabled = true
         collectionView.bounces = false
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: contentCellID)
 
         return collectionView
@@ -45,6 +45,7 @@ class PageContentView: UIView {
         
         self.chilVcs=chilVcs
         self.parentViewController=parentViewController
+        
         
         super.init(frame : frame)
         
@@ -76,34 +77,6 @@ extension PageContentView {
     }
 }
 
-//遵守UICollectionViewDataSource
-extension PageContentView : UICollectionViewDataSource {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return   chilVcs.count
-    }
-
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//创建cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellID, for: indexPath)
-        
-//給cell设置内容
-        
-        for view in cell.contentView.subviews {
-        
-            view.removeFromSuperview()
-        
-        }
-        let chidVC = chilVcs[indexPath.item]
-        chidVC.view.frame = cell.contentView.bounds
-        cell.contentView.addSubview(chidVC.view)
-        return cell
-
-    }
-
-}
-
 //对外暴露的方法
 extension PageContentView{
     
@@ -112,9 +85,52 @@ extension PageContentView{
         let offsetx = CGFloat(currentIndex) * collectionView.frame.width
         
         collectionView.setContentOffset(CGPoint(x: offsetx, y: 0), animated: false)
-    
+        
     }
 }
 
+//遵守UICollectionViewDataSource
+extension PageContentView : UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return   chilVcs.count
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //创建cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellID, for: indexPath)
+        
+        //給cell设置内容
+        
+        for view in cell.contentView.subviews {
+            
+            view.removeFromSuperview()
+            
+        }
+        let chidVC = chilVcs[indexPath.item]
+        chidVC.view.frame = cell.contentView.bounds
+        cell.contentView.addSubview(chidVC.view)
+        return cell
+        
+    }
+    
+}
+
+//遵守UICollectionDelegate
+extension PageContentView : UICollectionViewDelegate{
+    
+
+    //滚动开始
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let currentPage = floor((scrollView.contentOffset.x - screenW / 2) / screenW) + 1
+       print("scrollView---\(currentPage)")
+        
+        ContentCurrentPage?(Int(currentPage))
+        
+
+    }
+}
 
 
