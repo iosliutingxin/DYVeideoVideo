@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5117F71F2030817800868F3B /* RecommeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117F71E2030817800868F3B /* RecommeViewController.swift */; };
+		514483022031317B00206A6C /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514483012031317B00206A6C /* GameController.swift */; };
 		51A04AFC20309032006F9392 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A04AFA20309032006F9392 /* CollectionHeaderView.swift */; };
 		51A04AFD20309032006F9392 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A04AFB20309032006F9392 /* CollectionHeaderView.xib */; };
 		51A04B00203094B0006F9392 /* CollectionNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A04AFE203094B0006F9392 /* CollectionNormalCell.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		5117F71E2030817800868F3B /* RecommeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommeViewController.swift; sourceTree = "<group>"; };
+		514483012031317B00206A6C /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		51A04AFA20309032006F9392 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionHeaderView.swift; path = DYZB/Classes/Home/CollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		51A04AFB20309032006F9392 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CollectionHeaderView.xib; path = DYZB/Classes/Home/CollectionHeaderView.xib; sourceTree = SOURCE_ROOT; };
 		51A04AFE203094B0006F9392 /* CollectionNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNormalCell.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				C95F874D1EB5E5B900C7CF2A /* Home.storyboard */,
 				C95F875F1EB5EE0900C7CF2A /* HomeViewController.swift */,
 				5117F71E2030817800868F3B /* RecommeViewController.swift */,
+				514483012031317B00206A6C /* GameController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				TargetAttributes = {
 					C95F87141EB4917B00C7CF2A = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7P22LHGV83;
 						LastSwiftMigration = 0830;
 					};
 					C95F87281EB4917C00C7CF2A = {
@@ -423,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5117F71F2030817800868F3B /* RecommeViewController.swift in Sources */,
+				514483022031317B00206A6C /* GameController.swift in Sources */,
 				51A04AFC20309032006F9392 /* CollectionHeaderView.swift in Sources */,
 				C95F87191EB4917C00C7CF2A /* AppDelegate.swift in Sources */,
 				C9E98EEA1EBF20F800217139 /* UIColor-extension.swift in Sources */,
@@ -592,6 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = 7P22LHGV83;
 				INFOPLIST_FILE = DYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -606,6 +612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = 7P22LHGV83;
 				INFOPLIST_FILE = DYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

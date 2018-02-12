@@ -36,8 +36,12 @@ class HomeViewController: UIViewController {
         let contentFrame = CGRect(x: 0, y: stateBarH + NavigationBar + titleViewH, width: screenW, height: contentH)
 //2、确定所有子控制器
         var childVc = [UIViewController]()
+        //（1--推荐控制器
         childVc.append(RecommeViewController())
-        for _ in 0..<3{
+        //（2--游戏控制器
+        childVc.append(GameController())
+
+        for _ in 0..<2{
         
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
