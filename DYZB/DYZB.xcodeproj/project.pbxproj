@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51128E2A20328282003196DA /* GuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51128E2920328282003196DA /* GuideController.swift */; };
 		5117F71F2030817800868F3B /* RecommeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117F71E2030817800868F3B /* RecommeViewController.swift */; };
+		511FF46B20328F4F007BDDD9 /* CollectionGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511FF46920328F4F007BDDD9 /* CollectionGuideCell.swift */; };
+		511FF46C20328F4F007BDDD9 /* CollectionGuideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511FF46A20328F4F007BDDD9 /* CollectionGuideCell.xib */; };
+		511FF46E2032BB23007BDDD9 /* GuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511FF46D2032BB23007BDDD9 /* GuideModel.swift */; };
+		511FF4712043A85B007BDDD9 /* Eject01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511FF4702043A85B007BDDD9 /* Eject01.swift */; };
+		511FF4732043AC44007BDDD9 /* FollowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511FF4722043AC44007BDDD9 /* FollowController.swift */; };
 		514483022031317B00206A6C /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514483012031317B00206A6C /* GameController.swift */; };
 		51A04AFC20309032006F9392 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A04AFA20309032006F9392 /* CollectionHeaderView.swift */; };
 		51A04AFD20309032006F9392 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A04AFB20309032006F9392 /* CollectionHeaderView.xib */; };
@@ -50,7 +56,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51128E2920328282003196DA /* GuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideController.swift; sourceTree = "<group>"; };
 		5117F71E2030817800868F3B /* RecommeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommeViewController.swift; sourceTree = "<group>"; };
+		511FF46920328F4F007BDDD9 /* CollectionGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGuideCell.swift; sourceTree = "<group>"; };
+		511FF46A20328F4F007BDDD9 /* CollectionGuideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGuideCell.xib; sourceTree = "<group>"; };
+		511FF46D2032BB23007BDDD9 /* GuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuideModel.swift; path = DYZB/Classes/Main/View/GuideModel.swift; sourceTree = SOURCE_ROOT; };
+		511FF4702043A85B007BDDD9 /* Eject01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eject01.swift; sourceTree = "<group>"; };
+		511FF4722043AC44007BDDD9 /* FollowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FollowController.swift; path = DYZB/Classes/Tools/BaseView/FollowController.swift; sourceTree = SOURCE_ROOT; };
 		514483012031317B00206A6C /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		51A04AFA20309032006F9392 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionHeaderView.swift; path = DYZB/Classes/Home/CollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		51A04AFB20309032006F9392 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CollectionHeaderView.xib; path = DYZB/Classes/Home/CollectionHeaderView.xib; sourceTree = SOURCE_ROOT; };
@@ -106,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		511FF46F2043A756007BDDD9 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				511FF4702043A85B007BDDD9 /* Eject01.swift */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
 		C95F870C1EB4917B00C7CF2A = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				C95F87521EB5E5FF00C7CF2A /* Follow.storyboard */,
+				511FF4722043AC44007BDDD9 /* FollowController.swift */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -216,6 +237,7 @@
 		C95F874C1EB59C1400C7CF2A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				511FF46F2043A756007BDDD9 /* BaseView */,
 				C95F87611EB5F90F00C7CF2A /* Extension */,
 			);
 			path = Tools;
@@ -253,6 +275,7 @@
 			children = (
 				51BA456A202F38FF00CBC1A8 /* MainViewController.swift */,
 				C95F871C1EB4917C00C7CF2A /* Main.storyboard */,
+				51128E2920328282003196DA /* GuideController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +283,7 @@
 		C95F875D1EB5ED9E00C7CF2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				511FF46D2032BB23007BDDD9 /* GuideModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +295,8 @@
 				C9E98EE71EBF1B5700217139 /* PageContentView.swift */,
 				51A04AFE203094B0006F9392 /* CollectionNormalCell.swift */,
 				51A04AFF203094B0006F9392 /* CollectionNormalCell.xib */,
+				511FF46920328F4F007BDDD9 /* CollectionGuideCell.swift */,
+				511FF46A20328F4F007BDDD9 /* CollectionGuideCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,6 +427,7 @@
 				C95F87511EB5E5DE00C7CF2A /* Live.storyboard in Resources */,
 				C95F874F1EB5E5B900C7CF2A /* Home.storyboard in Resources */,
 				C95F87561EB5E61700C7CF2A /* Profile.storyboard in Resources */,
+				511FF46C20328F4F007BDDD9 /* CollectionGuideCell.xib in Resources */,
 				C95F87541EB5E5FF00C7CF2A /* Follow.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,13 +457,18 @@
 				514483022031317B00206A6C /* GameController.swift in Sources */,
 				51A04AFC20309032006F9392 /* CollectionHeaderView.swift in Sources */,
 				C95F87191EB4917C00C7CF2A /* AppDelegate.swift in Sources */,
+				511FF4712043A85B007BDDD9 /* Eject01.swift in Sources */,
 				C9E98EEA1EBF20F800217139 /* UIColor-extension.swift in Sources */,
 				C95F87671EB792A800C7CF2A /* common.swift in Sources */,
 				C9E98EE81EBF1B5700217139 /* PageContentView.swift in Sources */,
+				511FF46E2032BB23007BDDD9 /* GuideModel.swift in Sources */,
 				C95F87651EB78E5400C7CF2A /* PageTitleView.swift in Sources */,
 				51BA456B202F38FF00CBC1A8 /* MainViewController.swift in Sources */,
 				C95F87601EB5EE0900C7CF2A /* HomeViewController.swift in Sources */,
 				51A04B00203094B0006F9392 /* CollectionNormalCell.swift in Sources */,
+				511FF4732043AC44007BDDD9 /* FollowController.swift in Sources */,
+				51128E2A20328282003196DA /* GuideController.swift in Sources */,
+				511FF46B20328F4F007BDDD9 /* CollectionGuideCell.swift in Sources */,
 				C95F87631EB5F96E00C7CF2A /* UIBarButton-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

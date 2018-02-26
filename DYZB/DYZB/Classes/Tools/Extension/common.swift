@@ -12,5 +12,6 @@ let stateBarH:CGFloat=20
 let NavigationBar :CGFloat=44
 let tabBarH :CGFloat=44
 
-let screenW=UIScreen.main.bounds.width
-let screenH=UIScreen.main.bounds.height
+let screenW = UIScreen.main.bounds.width
+let screenH = UIScreen.main.bounds.height
+
