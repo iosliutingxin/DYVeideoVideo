@@ -13,10 +13,20 @@ private let ItemH = ItemW * 3 / 4
 private let normalCell = "normalCell"
 private let headerViewID = "headerViewID"
 private let ItemheaderH : CGFloat = 50
+private let cycleHeight = screenH * 3 / 8
 
 class RecommeViewController: UIViewController {
     
+    
     //懒加载UICollectionView
+    fileprivate lazy var recommeMV : RecommeModel = RecommeModel()
+    //懒加载无线滚动View
+    fileprivate lazy var recommeCycle : RecommendCycle = {
+        let cycleView = RecommendCycle.createCycleView()
+        cycleView.frame = CGRect(x: 0, y: -cycleHeight, width: screenW, height: cycleHeight)
+        return cycleView
+        
+    }()
     fileprivate lazy var collection : UICollectionView = {[unowned self] in
         
         //1、创建布局
@@ -54,6 +64,35 @@ class RecommeViewController: UIViewController {
     }
 }
 
+//设置UI
+extension RecommeViewController{
+    
+    fileprivate func setUI(){
+        //1、将collection添加到控制器的View当中
+        view.addSubview(collection)
+        
+        //2、将无线轮播图添加到collection中
+        collection.addSubview(recommeCycle)
+        
+        //3、给collection设置内边距
+        collection.contentInset = UIEdgeInsets(top: cycleHeight, left: 0, bottom: 0, right: 0)
+        
+        
+    
+        loadData()
+        
+    }
+}
+
+//发送网络请求
+extension RecommeViewController{
+    
+    func loadData(){
+       recommeMV.requestData()
+    }
+    
+}
+
 extension RecommeViewController : UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -79,12 +118,4 @@ extension RecommeViewController : UICollectionViewDataSource{
     }
 }
 
-//设置UI
-extension RecommeViewController{
-    
-    fileprivate func setUI(){
-        
-        view.addSubview(collection)
-        
-    }
-}
+
