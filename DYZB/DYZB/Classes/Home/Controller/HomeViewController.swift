@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
         //（1--推荐控制器
         childVc.append(RecommeViewController())
         //（2--游戏控制器
-        childVc.append(GameController())
+        childVc.append(gameController())
 
         for _ in 0..<2{
         

@@ -19,7 +19,6 @@ class AnchorGroup: NSObject {
             for dict in room_list{
                 let group = AnchorModel(dict: dict as [String : AnyObject])
                 self.anchorArray.append(group)
-                
             }
             
         }

@@ -25,12 +25,11 @@ class GuideController: UIViewController {
     fileprivate var guideArr : NSMutableArray = {
         var guideArr = NSMutableArray()
         //1、导航页数据
-        var guideImages = ["bg_GuideIndex1_6","bg_GuideIndex2_6","bg_GuideIndex3_6","bg_GuideIndex4_6"]
+        var guideImages = [["guideImage":"bg_GuideIndex1_6"],["guideImage":"bg_GuideIndex2_6"],["guideImage":"bg_GuideIndex3_6"],["guideImage":"bg_GuideIndex4_6"]]
         //2、数据转模型
-        for var image in guideImages{
+        for var dict in guideImages{
             
-            var  model  = GuideModel()
-            model.guideImage = image
+            var  model  = GuideModel(dict: dict as [String : AnyObject])
             //3、模型存数组
             guideArr.add(model)
         }

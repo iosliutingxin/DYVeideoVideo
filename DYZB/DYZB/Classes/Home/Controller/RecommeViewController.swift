@@ -14,6 +14,7 @@ private let normalCell = "normalCell"
 private let headerViewID = "headerViewID"
 private let ItemheaderH : CGFloat = 50
 private let cycleHeight = screenH * 3 / 8
+private let recommeGameHeight : CGFloat = 90
 
 class RecommeViewController: UIViewController {
     
@@ -23,8 +24,15 @@ class RecommeViewController: UIViewController {
     //懒加载无线滚动View
     fileprivate lazy var recommeCycle : RecommendCycle = {
         let cycleView = RecommendCycle.createCycleView()
-        cycleView.frame = CGRect(x: 0, y: -cycleHeight, width: screenW, height: cycleHeight)
+        cycleView.frame = CGRect(x: 0, y: -(cycleHeight + recommeGameHeight), width: screenW, height: cycleHeight)
         return cycleView
+        
+    }()
+    //懒加载游戏推荐
+    fileprivate lazy var recommeGame : recomeGameView = {
+        let recommeGame = recomeGameView.createCycleView()
+        recommeGame.frame = CGRect(x: 0, y: -recommeGameHeight, width: screenW, height: recommeGameHeight)
+        return recommeGame
         
     }()
     fileprivate lazy var collection : UICollectionView = {[unowned self] in
@@ -61,6 +69,7 @@ class RecommeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        loadData()
     }
 }
 
@@ -74,12 +83,13 @@ extension RecommeViewController{
         //2、将无线轮播图添加到collection中
         collection.addSubview(recommeCycle)
         
-        //3、给collection设置内边距
-        collection.contentInset = UIEdgeInsets(top: cycleHeight, left: 0, bottom: 0, right: 0)
+        //3、游戏推荐页面
+        collection.addSubview(recommeGame)
         
+        //4、给collection设置内边距
+        collection.contentInset = UIEdgeInsets(top: cycleHeight + recommeGameHeight, left: 0, bottom: 0, right: 0)
         
-    
-        loadData()
+       
         
     }
 }
@@ -88,7 +98,10 @@ extension RecommeViewController{
 extension RecommeViewController{
     
     func loadData(){
-       recommeMV.requestData()
+        recommeMV.requestData()
+        recommeMV.requestCycle()
+        //4、给轮播传送数据
+        recommeCycle.data = recommeMV.cycleGroup
     }
     
 }

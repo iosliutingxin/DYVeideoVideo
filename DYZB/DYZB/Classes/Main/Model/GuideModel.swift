@@ -10,7 +10,14 @@ import UIKit
 
 class GuideModel: NSObject {
     
-    var guideImage : String?
+    var guideImage : String = ""
     
-
+    //字典转模型
+    init(dict:[String:AnyObject]) {
+        super.init()
+        guideImage = dict["guideImage"] as! String
+    }
+    override func setValue(_ value: Any?, forKey key: String) {
+        
+    }
 }

@@ -125,7 +125,7 @@ extension PageContentView : UICollectionViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let currentPage = floor((scrollView.contentOffset.x - screenW / 2) / screenW) + 1
-//       print("scrollView---\(currentPage)")
+       print("scrollView---\(currentPage)")
         
         ContentCurrentPage?(Int(currentPage))
         

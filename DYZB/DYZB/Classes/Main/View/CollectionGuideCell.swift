@@ -22,10 +22,10 @@ class CollectionGuideCell: UICollectionViewCell {
     }
     weak var model : GuideModel!{
         didSet{
-            guard let image = model.guideImage else{
+            guard  model != nil else{
                 return
             }
-            guideImage.image = UIImage(named: image)
+            guideImage.image = UIImage(named: model.guideImage)
             
         }
         
