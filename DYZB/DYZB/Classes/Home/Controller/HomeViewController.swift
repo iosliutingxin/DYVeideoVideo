@@ -40,8 +40,10 @@ class HomeViewController: UIViewController {
         childVc.append(RecommeViewController())
         //（2--游戏控制器
         childVc.append(gameController())
+        //3、游戏界面
+        childVc.append(AmuseController())
 
-        for _ in 0..<2{
+        for _ in 0..<1{
         
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))

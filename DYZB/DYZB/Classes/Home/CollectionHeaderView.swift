@@ -16,3 +16,10 @@ class CollectionHeaderView: UICollectionReusableView {
     }
     
 }
+extension CollectionHeaderView{
+    //提供一个快速创建View的类方法
+    class func createCycleView() -> CollectionHeaderView {
+        return Bundle.main.loadNibNamed("CollectionHeaderView", owner: nil, options: nil)?.first as! CollectionHeaderView
+    }
+}
+

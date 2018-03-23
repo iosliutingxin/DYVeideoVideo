@@ -9,22 +9,16 @@
 import UIKit
 private let cellID = "gameCell"
 private let edgeMargin : CGFloat = 10
-private let itemWeight : CGFloat = (screenW - 2 * edgeMargin) / 3
+private let itemWeight : CGFloat = (screenW - 3 * edgeMargin) / 2
 private let itemHeight : CGFloat = itemWeight * 6 / 5
 private let ItemheaderH : CGFloat = 50
 private let headerViewID = "headerViewID"
 private let recommeGameHeight : CGFloat = 90
 
-class gameController: UIViewController {
-
-
-    //懒加载游戏推荐
-    fileprivate lazy var recommeGame : recomeGameView = {
-        let recommeGame = recomeGameView.createCycleView()
-        recommeGame.frame = CGRect(x: 0, y: -recommeGameHeight, width: screenW, height: recommeGameHeight)
-        return recommeGame
-        
-    }()
+class AmuseController: UIViewController {
+    
+    
+  
     fileprivate lazy var conllection : UICollectionView = {[weak self] in
         //流水布局
         let layout = UICollectionViewFlowLayout()
@@ -32,45 +26,43 @@ class gameController: UIViewController {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 0
         layout.headerReferenceSize = CGSize(width: screenW, height: ItemheaderH)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: edgeMargin, bottom: 0, right: edgeMargin)
 
-        
         let conllection = UICollectionView(frame: (self?.view.bounds)!, collectionViewLayout: layout)
-
-        conllection.register(UINib(nibName: "gameCell", bundle: nil), forCellWithReuseIdentifier: cellID)
+        conllection.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: cellID)
         conllection.dataSource = self
+
         //适配屏幕
         conllection.autoresizingMask = [.flexibleHeight,.flexibleWidth]
-        conllection.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerViewID)
-
+        
         return conllection
         
-    }()
+        }()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUI()
         
-
-
+        
+        
     }
 }
 
 
-extension gameController {
+extension AmuseController {
     func setUI() {
         //1.加载UICOllectionView
         view.addSubview(conllection)
         
         //2、加载推荐
-        conllection.addSubview(recommeGame)
         
         //3、设置collection内边距
         conllection.contentInset = UIEdgeInsets(top: recommeGameHeight, left: 0, bottom: 0, right: 0)
-
+        
     }
 }
 
 //-----------------------------UICollectionViewDataSource---
-extension gameController : UICollectionViewDataSource {
+extension AmuseController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 60
@@ -82,8 +74,7 @@ extension gameController : UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headview = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerViewID, for: indexPath)
-        return headview
-    }
+  
+    
 }
+

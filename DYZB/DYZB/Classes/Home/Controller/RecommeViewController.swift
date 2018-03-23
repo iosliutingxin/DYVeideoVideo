@@ -86,7 +86,7 @@ extension RecommeViewController{
         //3、游戏推荐页面
         collection.addSubview(recommeGame)
         
-        //4、给collection设置内边距
+        //4、给collection设置内边距--用来放置广告窗
         collection.contentInset = UIEdgeInsets(top: cycleHeight + recommeGameHeight, left: 0, bottom: 0, right: 0)
         
        
