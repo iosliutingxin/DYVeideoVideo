@@ -19,12 +19,19 @@ class gameController: UIViewController {
 
 
     //懒加载游戏推荐
+    fileprivate lazy var topView : CollectionHeaderView = {
+        let topView = CollectionHeaderView.createCycleView()
+        topView.frame = CGRect(x: 0, y: -(ItemheaderH + recommeGameHeight), width: screenW, height: itemHeight - 1)
+        return topView
+    }()
     fileprivate lazy var recommeGame : recomeGameView = {
         let recommeGame = recomeGameView.createCycleView()
         recommeGame.frame = CGRect(x: 0, y: -recommeGameHeight, width: screenW, height: recommeGameHeight)
         return recommeGame
         
     }()
+
+    //UICollection
     fileprivate lazy var conllection : UICollectionView = {[weak self] in
         //流水布局
         let layout = UICollectionViewFlowLayout()
@@ -54,22 +61,23 @@ class gameController: UIViewController {
     }
 }
 
-
+//设置UI
 extension gameController {
     func setUI() {
         //1.加载UICOllectionView
         view.addSubview(conllection)
         
         //2、加载推荐
+        conllection.addSubview(topView)
         conllection.addSubview(recommeGame)
         
         //3、设置collection内边距
-        conllection.contentInset = UIEdgeInsets(top: recommeGameHeight, left: 0, bottom: 0, right: 0)
+        conllection.contentInset = UIEdgeInsets(top: ItemheaderH + recommeGameHeight, left: 0, bottom: 0, right: 0)
 
     }
 }
 
-//-----------------------------UICollectionViewDataSource---
+//UICollectionViewDataSource---
 extension gameController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -77,7 +85,9 @@ extension gameController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! gameCell
+        cell.iconLableView.text = "第\(indexPath.row)个"
+        
         cell.backgroundColor = UIColor.randomColor()
         return cell
     }
